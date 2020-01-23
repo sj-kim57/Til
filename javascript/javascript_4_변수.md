@@ -1,6 +1,6 @@
 # javascript
 
-## 출력
+## 변수
 
 * alert() 함수
 
