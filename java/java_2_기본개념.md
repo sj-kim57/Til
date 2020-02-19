@@ -569,3 +569,44 @@ System.out.printf("%s", "System.out.printf(\"%10.2f\\n\", 123.45); 실행 결과
 ### Scanner 클래스
 
 통문자열을 읽어 사용 가능
+
+https://docs.oracle.com/javase/8/docs/api/index.html
+
+```java
+public static void main(String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNextLine()) {
+			String input = sc.nextLine();
+			System.out.println(">>> " + input);
+			if (input.equals("X"))
+				break;
+		}
+		System.out.print("END");
+		sc.close();
+	}
+```
+
+기본 타입 값 비교 ⇒ == 사용 문자열 타입 값 비교 ⇒ equals() 메소드 사용
+
+```java
+public static void main(String[] args) throws IOException {
+		int x = 5;
+		System.out.println( x == 5 );	// true
+		System.out.println( x == 6 );	// false
+		
+		//	s1과 s2는 동일한 메모리 공간을 참조
+		//	s3와 s4는 각각의 메모리 공간을 참조
+		String s1 = "Java";						
+		String s2 = "Java";
+		String s3 = new String("Java");
+		String s4 = new String("Java");
+
+		System.out.println( s1 == s2 );		// true  ⇐ 값 비교, 동일 주소이므로 true
+		System.out.println( s1.equals(s2) );	// true  ⇐ 내용 비교
+		System.out.println( s3 == s4 );		// false ⇐ 값 비교, 주소가 다르므로 false
+		System.out.println( s3.equals(s4) );	// true
+		System.out.println( s1 == s3 );		// false
+		System.out.println( s1.equals(s3) );	// true		
+	}
+```
+
